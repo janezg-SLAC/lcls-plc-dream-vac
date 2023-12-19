@@ -3,6 +3,8 @@
   <POU Name="PRG_Main_Chamber" Id="{563898ad-99a3-4a88-bce1-94f471bfe1e1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_Main_Chamber
 VAR
+    bSetFreq : BOOL;
+    rtSetFreq : R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -57,11 +59,15 @@ fbTD20Com_DREAM_MC_PTM_02(SerialRXBuffer:= SerialRXBuffer_DREAM_MC_PTM_02,
 DREAM_MC_PTM_02.M_Serial_IO(stTD20_RBK_DREAM_MC_PTM_02);
 
 //DREAM_CAT1_PTM_01 (TD400)
+rtSetFreq(CLK:=bSetFreq);
+stTD400_CTRL_DREAM_CAT1_PTM_01.xSetFreq := rtSetFreq.Q;
+
 fbTD400Com_DREAM_CAT1_PTM_01(SerialRXBuffer:= SerialRXBuffer_DREAM_CAT1_PTM_01,
                              SerialTXBuffer:= SerialTXBuffer_DREAM_CAT1_PTM_01,
-                             astTD20Status=> stTD400_RBK_DREAM_CAT1_PTM_01);
+                             stTD400Control:= stTD400_CTRL_DREAM_CAT1_PTM_01,
+                             stTD400Status=> stTD400_RBK_DREAM_CAT1_PTM_01);
 
-DREAM_CAT1_PTM_01.M_Serial_IO(stTD400_RBK_DREAM_CAT1_PTM_01);
+//DREAM_CAT1_PTM_01.M_Serial_IO(stTD400_RBK_DREAM_CAT1_PTM_01);
 
 //DREAM_CAT2_PTM_01 (TD400)
 fbTD400Com_DREAM_CAT2_PTM_01(SerialRXBuffer:= SerialRXBuffer_DREAM_CAT2_PTM_01,
