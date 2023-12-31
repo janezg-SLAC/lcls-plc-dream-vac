@@ -12,7 +12,7 @@
 				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="4" Priority="25" CycleTime="100000" AmsPort="351" AdtTasks="true">
+				<Task Id="4" Priority="19" CycleTime="20000" AmsPort="351" AdtTasks="true">
 					<Name>Serial_COM</Name>
 				</Task>
 			</Tasks>

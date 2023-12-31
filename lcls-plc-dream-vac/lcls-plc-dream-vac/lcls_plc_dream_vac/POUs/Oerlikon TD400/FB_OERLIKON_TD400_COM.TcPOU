@@ -41,10 +41,7 @@ IF fbTD400SerialDriver.q_xDone
         (* reset for next time *)
         fbTD400SerialDriver(i_xExecute:= FALSE, iq_stSerialRXBuffer:= SerialRXBuffer, iq_stSerialTXBuffer:= SerialTXBuffer);
 END_IF
-
-
-
-    ]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

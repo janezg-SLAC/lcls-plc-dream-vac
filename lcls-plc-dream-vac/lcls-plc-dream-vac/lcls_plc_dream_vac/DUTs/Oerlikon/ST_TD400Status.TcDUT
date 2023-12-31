@@ -29,6 +29,18 @@ STRUCT
     io: i;
     '}
     wConverterTemp_P11: WORD;
+    /// Maximum setpoint frequency
+    {attribute 'pytmc' := '
+    pv: MaxSetpoinFreq;
+    io: i;
+    '}
+    wMaxSetpointFreq_P18: WORD;
+    /// Minimum setpoint frequency
+    {attribute 'pytmc' := '
+    pv: MinSetpoinFreq;
+    io: i;
+    '}
+    wMinSetpointFreq_P19: WORD;
     /// Critical frequency
     {attribute 'pytmc' := '
     pv: CriticalFrequency;

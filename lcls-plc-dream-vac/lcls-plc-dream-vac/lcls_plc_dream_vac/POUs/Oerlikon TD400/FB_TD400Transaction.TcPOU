@@ -164,7 +164,7 @@ CASE iStep OF
             iStep := 9000;
         ELSIF fbReceiveData.DataReceived THEN
             q_abLastReceivedArray := q_abResponseData;
-            bRXChecksum := F_CalcTD20Checksum(q_abResponseData);
+            bRXChecksum := F_CalcTD400Checksum(q_abResponseData);
             bRXAddress := q_abResponseData[2];
             MEMCPY(destAddr:=ADR(wTemp) , srcAddr:=ADR(q_abResponseData[3]), n:=2);
             q_wPKE := BE16_TO_HOST(wTemp);
@@ -217,10 +217,7 @@ CASE iStep OF
         q_wMotorCurrent_P5:= 0;
         q_wConverterTemp_P11:= 0;
         q_wPumpTemp_P127:= 0;
-        q_xError := TRUE;;
-
-
-
+        q_xError := TRUE;
 
 END_CASE]]></ST>
     </Implementation>

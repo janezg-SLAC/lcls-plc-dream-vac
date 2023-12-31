@@ -2,24 +2,6 @@
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CNestedPlcProjDef">
 	<DataTypes>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
-			<BitSize>48</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>6</Elements>
-			</ArrayInfo>
-			<Format>
-				<Printf>%d.%d.%d.%d.%d.%d</Printf>
-				<Parameter>[0]</Parameter>
-				<Parameter>[1]</Parameter>
-				<Parameter>[2]</Parameter>
-				<Parameter>[3]</Parameter>
-				<Parameter>[4]</Parameter>
-				<Parameter>[5]</Parameter>
-			</Format>
-		</DataType>
-		<DataType>
 			<Name GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
 			<Comment><![CDATA[ This data type is corresponding to the
    EL-6xxx data structure used in the
@@ -69,13 +51,128 @@
 				<BitOffs>16</BitOffs>
 			</SubItem>
 		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
+			<BitSize>48</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+			<Format>
+				<Printf>%d.%d.%d.%d.%d.%d</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+				<Parameter>[2]</Parameter>
+				<Parameter>[3]</Parameter>
+				<Parameter>[4]</Parameter>
+				<Parameter>[5]</Parameter>
+			</Format>
+		</DataType>
 	</DataTypes>
 	<Project GUID="{8B5CA86E-1547-4766-AA3F-34B97851849D}" Name="lcls_plc_dream_vac" PrjFilePath="..\..\lcls_plc_dream_vac\lcls_plc_dream_vac.plcproj" TmcFilePath="..\..\lcls_plc_dream_vac\lcls_plc_dream_vac.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="1" TmcPath="lcls_plc_dream_vac\lcls_plc_dream_vac.tmc" TmcHash="{18CEC1D1-9D8D-EE10-4A3D-956173F24E39}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="1" TmcPath="lcls_plc_dream_vac\lcls_plc_dream_vac.tmc" TmcHash="{D3EE7D7D-3E49-EEBF-514B-6757B3D10FC9}">
 			<Name>lcls_plc_dream_vac Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
+				<Name>Serial_COM Inputs</Name>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_NC_PTM_01</Name>
+					<Comment><![CDATA[SERIAL IO]]></Comment>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_NC_PTM_02</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_DP1_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_DP2_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_DP3_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_MC_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_MC_PTM_02</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_CAT1_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_CAT2_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_02</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2" AreaNo="1">
+				<Name>Serial_COM Outputs</Name>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_NC_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_NC_PTM_02</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_DP1_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_DP2_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_DP3_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_MC_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_MC_PTM_02</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_CAT1_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_CAT2_PTM_01</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_02</Name>
+					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="1" ContextId="1" AreaNo="16">
 				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
+					<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
+				<Var>
+					<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
+					<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
 				<Var>
 					<Name>GVL_Gas_Injection.DREAM_NC_GPI_01.i_iPRESS_R</Name>
 					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
@@ -224,58 +321,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.i_xOpnLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.i_xOpnLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.i_xOpnLS</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.i_xClsLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_01.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_02.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_03.i_iPRESS_R</Name>
-					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Main_Chamber.DREAM_MC_PTM_01.i_xAtSpd</Name>
 					<Comment><![CDATA[ Normaml operation when true]]></Comment>
 					<Type>BOOL</Type>
@@ -392,9 +437,74 @@
 					<Comment><![CDATA[  True when High Voltage is on  // 'TcLinkTo' (EL1084) ^Input]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.i_xOpnLS</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.i_xOpnLS</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.i_xOpnLS</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.i_xClsLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH1_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH1_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_01.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_02.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Roughing.DREAM_ROUGH2_GPI_03.i_iPRESS_R</Name>
+					<Comment><![CDATA[ input Pressure // Link to analog Input]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01</Name>
+					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
+				</Var>
 			</Vars>
-			<Vars VarGrpType="2" AreaNo="1">
+			<Vars VarGrpType="2" ContextId="1" AreaNo="17">
 				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>GVL_PLC_Interface.xIP2_HV_SAFETY_ENABLE</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_PLC_Interface.xHighVoltageSafteyLoopEnable</Name>
+					<Comment><![CDATA[When Enables the High voltage Saftey loop is closed and HV can start.]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>GVL_Gas_Injection.DREAM_NC_GCC_01.q_xHV_DIS</Name>
 					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
@@ -488,43 +598,6 @@
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.q_xOPN_DO</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_VFV_01.q_iRawPosition</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH1_VFV_02.q_iRawPosition</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_01.q_iRawPosition</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_02.q_iRawPosition</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_03.q_iRawPosition</Name>
-					<Comment><![CDATA[IO]]></Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Main_Chamber.DREAM_MC_PTM_01.q_RunDO</Name>
 					<Comment><![CDATA[ Start/Stop]]></Comment>
 					<Type>BOOL</Type>
@@ -586,123 +659,50 @@
 					<Comment><![CDATA[ Enable High Voltage when True // 'TcLinkTo' (EP2624) ^Output]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
-			</Vars>
-			<Vars VarGrpType="1" ContextId="1" AreaNo="16">
-				<Name>Serial_COM Inputs</Name>
 				<Var>
-					<Name>LCLS_General.DefaultGlobals.stSys.I_EcatMaster1</Name>
-					<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
-					<Name>LCLS_Vacuum.Global_Variables.g_stSystem.I_EcatMaster1</Name>
-					<Comment><![CDATA[ AMS Net ID used for FB_EcatDiag, among others ]]></Comment>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_NC_PTM_01</Name>
-					<Comment><![CDATA[SERIAL IO]]></Comment>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_NC_PTM_02</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_DP1_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_DP2_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_DP3_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_MC_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_MC_PTM_02</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_CAT1_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_CAT2_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_02</Name>
-					<Type GUID="{85EB743E-EC0D-47B1-9553-28DA3B66F3BC}" Namespace="Tc2_SerialCom">EL6inData22B</Type>
-				</Var>
-			</Vars>
-			<Vars VarGrpType="2" ContextId="1" AreaNo="17">
-				<Name>Serial_COM Outputs</Name>
-				<Var>
-					<Name>GVL_PLC_Interface.xIP2_HV_SAFETY_ENABLE</Name>
+					<Name>GVL_Roughing.DREAM_ROUGH1_VRC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_PLC_Interface.xHighVoltageSafteyLoopEnable</Name>
-					<Comment><![CDATA[When Enables the High voltage Saftey loop is closed and HV can start.]]></Comment>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_01.q_xOPN_DO</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_NC_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VRC_02.q_xOPN_DO</Name>
+					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_NC_PTM_02</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH1_VFV_01.q_iRawPosition</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_DP1_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH1_VFV_02.q_iRawPosition</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_DP2_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_01.q_iRawPosition</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_DP3_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_02.q_iRawPosition</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_MC_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_MC_PTM_02</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_CAT1_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_CAT2_PTM_01</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
+					<Name>GVL_Roughing.DREAM_ROUGH2_VFV_03.q_iRawPosition</Name>
+					<Comment><![CDATA[IO]]></Comment>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01</Name>
 					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
 				</Var>
-				<Var>
-					<Name>GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_02</Name>
-					<Type GUID="{5515528D-DE50-457E-BAE6-25F542B4D8B8}" Namespace="Tc2_SerialCom">EL6outData22B</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="8" ContextId="1" AreaNo="20">
-				<Name>Serial_COM Retains</Name>
+				<Name>PlcTask Retains</Name>
 				<Var>
 					<Name>PMPS_GVL.SuccessfulPreemption</Name>
 					<Comment><![CDATA[ Any time BPTM applies a new BP request which is confirmed]]></Comment>
@@ -724,6 +724,15 @@
 			<Contexts>
 				<Context>
 					<Id NeedCalleeCall="true">0</Id>
+					<Name>Serial_COM</Name>
+					<ManualConfig>
+						<OTCID>#x02010040</OTCID>
+					</ManualConfig>
+					<Priority>19</Priority>
+					<CycleTime>2000000</CycleTime>
+				</Context>
+				<Context>
+					<Id NeedCalleeCall="true">1</Id>
 					<Name>PlcTask</Name>
 					<ManualConfig>
 						<OTCID>#x02010030</OTCID>
@@ -731,19 +740,10 @@
 					<Priority>20</Priority>
 					<CycleTime>10000000</CycleTime>
 				</Context>
-				<Context>
-					<Id NeedCalleeCall="true">1</Id>
-					<Name>Serial_COM</Name>
-					<ManualConfig>
-						<OTCID>#x02010040</OTCID>
-					</ManualConfig>
-					<Priority>25</Priority>
-					<CycleTime>10000000</CycleTime>
-				</Context>
 			</Contexts>
 			<TaskPouOids>
+				<TaskPouOid Prio="19" OTCID="#x08502002"/>
 				<TaskPouOid Prio="20" OTCID="#x08502001"/>
-				<TaskPouOid Prio="25" OTCID="#x08502002"/>
 			</TaskPouOids>
 		</Instance>
 	</Project>
@@ -1193,52 +1193,52 @@
 				<Link VarA="PlcTask Outputs^GVL_Main_Chamber.DREAM_ROUGH2_PTM_01.q_RunDO" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^R20_DRL_03_CX0_EK1200^R20_DRL_03_E15_EL1122^K4S8_DRL_04_EK0_EK1100^K4S8_DRL_04_E6_EL6001">
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[0]" VarB="COM Inputs^Data In 0" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[10]" VarB="COM Inputs^Data In 10" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[11]" VarB="COM Inputs^Data In 11" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[12]" VarB="COM Inputs^Data In 12" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[13]" VarB="COM Inputs^Data In 13" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[14]" VarB="COM Inputs^Data In 14" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[15]" VarB="COM Inputs^Data In 15" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[16]" VarB="COM Inputs^Data In 16" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[17]" VarB="COM Inputs^Data In 17" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[18]" VarB="COM Inputs^Data In 18" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[19]" VarB="COM Inputs^Data In 19" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[1]" VarB="COM Inputs^Data In 1" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[20]" VarB="COM Inputs^Data In 20" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[21]" VarB="COM Inputs^Data In 21" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[2]" VarB="COM Inputs^Data In 2" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[3]" VarB="COM Inputs^Data In 3" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[4]" VarB="COM Inputs^Data In 4" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[5]" VarB="COM Inputs^Data In 5" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[6]" VarB="COM Inputs^Data In 6" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[7]" VarB="COM Inputs^Data In 7" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[8]" VarB="COM Inputs^Data In 8" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[9]" VarB="COM Inputs^Data In 9" AutoLink="true"/>
-				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^Status" VarB="COM Inputs^Status" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^Ctrl" VarB="COM Outputs^Ctrl" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[0]" VarB="COM Outputs^Data Out 0" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[10]" VarB="COM Outputs^Data Out 10" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[11]" VarB="COM Outputs^Data Out 11" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[12]" VarB="COM Outputs^Data Out 12" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[13]" VarB="COM Outputs^Data Out 13" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[14]" VarB="COM Outputs^Data Out 14" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[15]" VarB="COM Outputs^Data Out 15" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[16]" VarB="COM Outputs^Data Out 16" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[17]" VarB="COM Outputs^Data Out 17" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[18]" VarB="COM Outputs^Data Out 18" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[19]" VarB="COM Outputs^Data Out 19" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[1]" VarB="COM Outputs^Data Out 1" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[20]" VarB="COM Outputs^Data Out 20" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[21]" VarB="COM Outputs^Data Out 21" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[2]" VarB="COM Outputs^Data Out 2" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[3]" VarB="COM Outputs^Data Out 3" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[4]" VarB="COM Outputs^Data Out 4" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[5]" VarB="COM Outputs^Data Out 5" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[6]" VarB="COM Outputs^Data Out 6" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[7]" VarB="COM Outputs^Data Out 7" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[8]" VarB="COM Outputs^Data Out 8" AutoLink="true"/>
-				<Link VarA="Serial_COM Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[9]" VarB="COM Outputs^Data Out 9" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[0]" VarB="COM Inputs^Data In 0" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[10]" VarB="COM Inputs^Data In 10" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[11]" VarB="COM Inputs^Data In 11" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[12]" VarB="COM Inputs^Data In 12" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[13]" VarB="COM Inputs^Data In 13" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[14]" VarB="COM Inputs^Data In 14" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[15]" VarB="COM Inputs^Data In 15" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[16]" VarB="COM Inputs^Data In 16" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[17]" VarB="COM Inputs^Data In 17" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[18]" VarB="COM Inputs^Data In 18" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[19]" VarB="COM Inputs^Data In 19" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[1]" VarB="COM Inputs^Data In 1" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[20]" VarB="COM Inputs^Data In 20" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[21]" VarB="COM Inputs^Data In 21" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[2]" VarB="COM Inputs^Data In 2" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[3]" VarB="COM Inputs^Data In 3" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[4]" VarB="COM Inputs^Data In 4" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[5]" VarB="COM Inputs^Data In 5" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[6]" VarB="COM Inputs^Data In 6" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[7]" VarB="COM Inputs^Data In 7" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[8]" VarB="COM Inputs^Data In 8" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^D[9]" VarB="COM Inputs^Data In 9" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_Serial_Com.stComIn_DREAM_ROUGH2_PTM_01^Status" VarB="COM Inputs^Status" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^Ctrl" VarB="COM Outputs^Ctrl" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[0]" VarB="COM Outputs^Data Out 0" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[10]" VarB="COM Outputs^Data Out 10" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[11]" VarB="COM Outputs^Data Out 11" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[12]" VarB="COM Outputs^Data Out 12" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[13]" VarB="COM Outputs^Data Out 13" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[14]" VarB="COM Outputs^Data Out 14" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[15]" VarB="COM Outputs^Data Out 15" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[16]" VarB="COM Outputs^Data Out 16" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[17]" VarB="COM Outputs^Data Out 17" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[18]" VarB="COM Outputs^Data Out 18" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[19]" VarB="COM Outputs^Data Out 19" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[1]" VarB="COM Outputs^Data Out 1" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[20]" VarB="COM Outputs^Data Out 20" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[21]" VarB="COM Outputs^Data Out 21" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[2]" VarB="COM Outputs^Data Out 2" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[3]" VarB="COM Outputs^Data Out 3" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[4]" VarB="COM Outputs^Data Out 4" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[5]" VarB="COM Outputs^Data Out 5" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[6]" VarB="COM Outputs^Data Out 6" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[7]" VarB="COM Outputs^Data Out 7" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[8]" VarB="COM Outputs^Data Out 8" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_Serial_Com.stComOut_DREAM_ROUGH2_PTM_01^D[9]" VarB="COM Outputs^Data Out 9" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^R20_DRL_03_CX0_EK1200^R20_DRL_03_E15_EL1122^K4S8_DRL_04_EK0_EK1100^K4S8_DRL_04_E7_EL6001">
 				<Link VarA="Serial_COM Inputs^GVL_Serial_Com.stComIn_DREAM_CAT1_PTM_01^D[0]" VarB="COM Inputs^Data In 0" AutoLink="true"/>

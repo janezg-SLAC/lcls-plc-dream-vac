@@ -36,14 +36,13 @@ VAR
     sDriverErrMesg		: STRING := 'In step %d FB_TD20SerialDriver failed with unexpected PKE reply: %X';
     i : INT := 1;
     bSetFreq :BOOL;
-    rtSetFreq : R_TRIG;
+    nOldSetSetpointFreq_P24: WORD;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* This function block performs serial transactions with a Oerlikon TD20 Pump controller *)
-//Detecting rising edge on set frequency command
-rtSetFreq(CLK:=i_stControl.xSetFreq);
-IF rtSetFreq.Q THEN
+IF nOldSetSetpointFreq_P24 <> i_stControl.wSetSetpointFreq_P24 THEN
+    nOldSetSetpointFreq_P24 := i_stControl.wSetSetpointFreq_P24;
     bSetFreq := TRUE;
 END_IF
 
@@ -87,7 +86,31 @@ CASE iStep OF
         END_IF
 
     30:(* set P24 *)
-        iStep := iStep + 10;
+        IF bSetFreq THEN
+            fbTD400Transaction.i_wPKE := 16#2000 OR 24;
+            fbTD400Transaction.i_bIND := 0;
+            fbTD400Transaction.i_dwPWE := WORD_TO_DWORD(i_stControl.wSetSetpointFreq_P24);
+            fbTD400Transaction.i_xExecute := TRUE;
+
+            IF fbTD400Transaction.q_xError THEN
+                iCatch := iCatch +1;
+                a_TransactionErrorMesg();
+                iStep := 9000;
+                bSetFreq := FALSE;
+            ELSIF fbTD400Transaction.q_xDone THEN
+                fbTD400Transaction.i_xExecute := FALSE;
+                bSetFreq := FALSE;
+                IF fbTD400Transaction.q_wPKE = (16#1000 OR 24) THEN
+                    q_stStatus.wSetpointFreq_P24 := DWORD_TO_WORD(fbTD400Transaction.q_dwPWE);
+                    iStep := iStep + 10;
+                ELSE
+                    a_DriverErrorMesg();
+                    iStep := 9100;
+                END_IF
+            END_IF
+        ELSE
+            iStep := iStep + 10;
+        END_IF
 
     40:(* get P24 *)
         IF bSetFreq THEN
@@ -152,6 +175,47 @@ CASE iStep OF
             fbTD400Transaction.i_xExecute := FALSE;
             IF fbTD400Transaction.q_wPKE = (16#4000 OR 171) THEN
                 q_stStatus.wErrorCode_P171 := DWORD_TO_WORD(fbTD400Transaction.q_dwPWE);
+                //iStep := 8000;
+                iStep := iStep + 10;
+            ELSE
+                a_DriverErrorMesg();
+                iStep := 9100;
+            END_IF
+        END_IF
+
+    70:(* get P18 *)
+        fbTD400Transaction.i_wPKE := 16#1000 OR 18;
+        fbTD400Transaction.i_bIND := 0;
+        fbTD400Transaction.i_dwPWE := 0;
+        fbTD400Transaction.i_xExecute := TRUE;
+        IF fbTD400Transaction.q_xError THEN
+            iCatch := iCatch +1;
+            a_TransactionErrorMesg();
+            iStep := 9000;
+        ELSIF fbTD400Transaction.q_xDone THEN
+            fbTD400Transaction.i_xExecute := FALSE;
+            IF fbTD400Transaction.q_wPKE = (16#1000 OR 18) THEN
+                q_stStatus.wMaxSetpointFreq_P18 := DWORD_TO_WORD(fbTD400Transaction.q_dwPWE);
+                iStep := iStep + 10;
+            ELSE
+                a_DriverErrorMesg();
+                iStep := 9100;
+            END_IF
+        END_IF
+
+    80:(* get P19 *)
+        fbTD400Transaction.i_wPKE := 16#1000 OR 19;
+        fbTD400Transaction.i_bIND := 0;
+        fbTD400Transaction.i_dwPWE := 0;
+        fbTD400Transaction.i_xExecute := TRUE;
+        IF fbTD400Transaction.q_xError THEN
+            iCatch := iCatch +1;
+            a_TransactionErrorMesg();
+            iStep := 9000;
+        ELSIF fbTD400Transaction.q_xDone THEN
+            fbTD400Transaction.i_xExecute := FALSE;
+            IF fbTD400Transaction.q_wPKE = (16#1000 OR 19) THEN
+                q_stStatus.wMinSetpointFreq_P19 := DWORD_TO_WORD(fbTD400Transaction.q_dwPWE);
                 iStep := 8000;
             ELSE
                 a_DriverErrorMesg();
@@ -200,6 +264,8 @@ q_stStatus.wFrequency_P3 := 0;
 q_stStatus.wVoltage_P4 := 0;
 q_stStatus.wMotorCurrent_P5 := 0;
 q_stStatus.wConverterTemp_P11 := 0;
+q_stStatus.wMaxSetpointFreq_P18 := 0;
+q_stStatus.wMinSetpointFreq_P19 := 0;
 q_stStatus.wCriticalFreq_P20 := 0;
 //q_stStatus.wMaxCurrentFactor_P21 := 0;
 q_stStatus.wSetpointFreq_P24 := 0;

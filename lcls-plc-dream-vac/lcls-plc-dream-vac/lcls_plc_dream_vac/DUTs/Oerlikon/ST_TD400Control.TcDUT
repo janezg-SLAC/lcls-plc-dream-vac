@@ -7,8 +7,7 @@ STRUCT
     pv: SetPumpSpeed;
     io: i;
     '}
-    wSetSetpointFreq_P24: WORD; // speed setting in Hz normally 1200 Hz for SL 80
-    xSetFreq: BOOL;
+    wSetSetpointFreq_P24: WORD; // speed setting in Hz
 END_STRUCT
 END_TYPE
 ]]></Declaration>
