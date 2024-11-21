@@ -14,6 +14,12 @@
     <LibraryReferences>{40468539-12c6-48f6-a3cd-29166fa0ef6d}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ST_TD400Control.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_TD400Status.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_FWM.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -72,6 +78,21 @@
     <Compile Include="POUs\PRG_VALVES.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\TD400_Test\FB_OERLIKON_TD400_COM.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TD400_Test\FB_OERLIKON_TD400_TO_PTM.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TD400_Test\FB_TD400SerialDriver.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TD400_Test\FB_TD400Transaction.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\TD400_Test\F_CalcTD400Checksum.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\TempFB_IE514\FB_IE514.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -83,6 +104,7 @@
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
     <Folder Include="POUs\Functions" />
+    <Folder Include="POUs\TD400_Test" />
     <Folder Include="POUs\TempFB_IE514" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
@@ -116,6 +138,10 @@
       <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_System</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Utilities">
+      <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Utilities</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
@@ -134,7 +160,7 @@
       <Resolution>LCLS Vacuum, 2.3.4 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="LCLSVacuumSerialDriverLib">
-      <Resolution>LCLSVacuumSerialDriverLib, 1.3.2 (SLAC - LCLS)</Resolution>
+      <Resolution>LCLSVacuumSerialDriverLib, 1.2.2 (SLAC - LCLS)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="PMPS">
       <Resolution>PMPS, 3.3.0 (SLAC - LCLS)</Resolution>
@@ -147,6 +173,9 @@
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_System">
       <Resolution>Tc2_System, 3.4.26.0 (Beckhoff Automation GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="Tc2_Utilities">
+      <Resolution>Tc2_Utilities, 3.3.54.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc3_Module">
       <Resolution>Tc3_Module, 3.3.21.0 (Beckhoff Automation GmbH)</Resolution>
