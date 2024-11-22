@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="FB_OERLIKON_TD400_TO_PTM" Id="{baf7e8bc-1486-4fb9-99c8-79be208378ac}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_OERLIKON_TD400_TO_PTM
 VAR_IN_OUT
@@ -20,8 +20,8 @@ iq_stPTM.i_xDecel := iq_stTD400Status.wStatusWord.5;
 //iq_stPTM.i_xAtSpd := iq_stTD400Status.wStatusWord.10;
 iq_stPTM.q_xRemote := iq_stTD400Status.wStatusWord.15; (* Remote control enabled *)
 iq_stPTM.i_diCurSpd := WORD_TO_DINT(iq_stTD400Status.wFrequency_P3);
-iq_stPTM.i_rCurrentMon := WORD_TO_INT(iq_stTD400Status.wMotorCurrent_P5)*0.1; (*Current in units 0.1 A, TD400 manual page 31*);
-iq_stPTM.i_diPwr := REAL_TO_DINT(WORD_TO_DINT(iq_stTD400Status.wMotorCurrent_P5 * iq_stTD400Status.wVoltage_P4)*0.01); (*Current in units 0.1 A and voltage in units 0.1V, TD400 manual page 31*)
+iq_stPTM.i_rCurrentMon := WORD_TO_INT(iq_stTD400Status.wMotorCurrent_P5)*0.1; (*Current in units 0.1 A, TD400 Interface manual page 6*)
+iq_stPTM.i_diPwr := REAL_TO_DINT(WORD_TO_DINT(iq_stTD400Status.wMotorCurrent_P5 * iq_stTD400Status.wVoltage_P4)*0.1); (*Current in units 0.1 A, TD400 Interface manual page 6*)
 iq_stPTM.i_diElecTemp := WORD_TO_DINT(iq_stTD400Status.wConverterTemp_P11);
 iq_stPTM.i_rTempMon := WORD_TO_INT(iq_stTD400Status.wPumpTemp_P127);
 
